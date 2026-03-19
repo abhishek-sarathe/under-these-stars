@@ -163,36 +163,15 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            gap: "6px", marginTop: "40px",
-          }}
+          style={{ marginTop: "40px", textAlign: "center" }}
         >
-          <div style={{ display: "flex" }}>
-            {["🌙","⭐","✨","🌟","💫"].map((e, i) => (
-              <span key={i} style={{ fontSize: "15px", marginRight: "-2px" }}>{e}</span>
-            ))}
-          </div>
-          <span style={{ fontSize: "13px", color: "rgba(138,175,212,0.6)", marginLeft: "8px" }}>
+          <span style={{ fontSize: "13px", color: "rgba(138,175,212,0.6)" }}>
             For birthdays, weddings, anniversaries — any moment that mattered
           </span>
         </motion.div>
       </motion.div>
 
-      <motion.div
-        style={{ position: "absolute", bottom: "32px", left: "50%", transform: "translateX(-50%)" }}
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div style={{
-          width: "24px", height: "40px",
-          border: "1.5px solid rgba(255,255,255,0.15)",
-          borderRadius: "12px", display: "flex",
-          alignItems: "flex-start", justifyContent: "center", paddingTop: "6px",
-        }}>
-          <div style={{ width: "3px", height: "8px", background: "rgba(200,169,110,0.5)", borderRadius: "2px" }} />
-        </div>
-      </motion.div>
+
     </section>
   );
 }

@@ -29,8 +29,9 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 32px",
-        height: "64px",
+        padding: "0 16px",
+        height: "56px",
+        flexWrap: "nowrap",
         background: scrolled ? "rgba(8,14,26,0.92)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none",
@@ -38,7 +39,7 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
+      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", flexShrink: 0 }}>
         
         <span style={{
           fontFamily: "var(--font-playfair), Georgia, serif",
@@ -52,7 +53,7 @@ export default function Navbar() {
       </Link>
 
       {/* Links */}
-      <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(12px, 2vw, 32px)", flexShrink: 0 }}>
         <button
           onClick={() => scrollTo("how-it-works")}
           style={{
