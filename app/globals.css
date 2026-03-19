@@ -28,9 +28,9 @@ body {
   color: white;
 }
 
-@media (min-width: 860px) {
+/* @media (min-width: 860px) {
   .step2-layout {
     grid-template-columns: 1fr 1fr !important;
     align-items: start;
   }
-}
+} */
