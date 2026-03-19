@@ -26,6 +26,7 @@ export default function Footer() {
         {/* Links */}
         <div style={{ display: "flex", gap: "32px" }}>
           {[
+            { label: "About Star Maps", href: "/about" },
             { label: "Privacy Policy", href: "/privacy" },
             { label: "Contact", href: "mailto:hello@underthesestars.in" },
           ].map(l => (

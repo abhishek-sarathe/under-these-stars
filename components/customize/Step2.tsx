@@ -58,6 +58,7 @@ const TITLE_FONTS = [
 ];
 
 const OCCASION_FONTS = [
+  { id: "Alex Brush",     label: "Alex Brush" },
   { id: "Dancing Script", label: "Dancing Script" },
   { id: "Great Vibes",    label: "Great Vibes" },
   { id: "Pacifico",       label: "Pacifico" },
@@ -375,7 +376,7 @@ function CustomizationPanel({
 
         <div>
           <label style={{ ...labelStyle, marginBottom: "8px" }}>Dedication font</label>
-          <select style={selectStyle} value={(data as any)[occFontKey] || "Dancing Script"}
+          <select style={selectStyle} value={(data as any)[occFontKey] || "Alex Brush"}
             onChange={e => update({ [occFontKey]: e.target.value } as any)}
             onFocus={e => (e.target.style.borderColor = "rgba(200,169,110,0.6)")}
             onBlur={e  => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}>

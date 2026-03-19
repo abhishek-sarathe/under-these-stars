@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -35,65 +35,64 @@ export default function Navbar() {
         background: scrolled ? "rgba(8,14,26,0.92)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none",
-        transition: "background 0.4s, border 0.4s, backdrop-filter 0.4s",
+        transition: "background 0.4s, border 0.4s",
       }}
     >
-      {/* Logo */}
-      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none", flexShrink: 0 }}>
-        
-        <span style={{
+      {/* Logo — UTS on mobile, full name on desktop */}
+      <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
+        <span className="nav-logo-full" style={{
           fontFamily: "var(--font-playfair), Georgia, serif",
-          fontSize: "17px",
-          fontWeight: 600,
-          color: "#C8A96E",
-          letterSpacing: "0.3px",
+          fontSize: "17px", fontWeight: 600,
+          color: "#C8A96E", letterSpacing: "0.3px",
         }}>
           Under These Stars
+        </span>
+        <span className="nav-logo-short" style={{
+          fontFamily: "var(--font-playfair), Georgia, serif",
+          fontSize: "17px", fontWeight: 600,
+          color: "#C8A96E", letterSpacing: "1px",
+        }}>
+          UTS
         </span>
       </Link>
 
       {/* Links */}
-      <div style={{ display: "flex", alignItems: "center", gap: "clamp(12px, 2vw, 32px)", flexShrink: 0 }}>
-        <button
-          onClick={() => scrollTo("how-it-works")}
-          style={{
-            background: "none", border: "none", cursor: "pointer",
-            fontSize: "14px", color: "rgba(138,175,212,0.8)",
-            padding: 0,
-          }}
+      <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 2vw, 28px)", flexShrink: 0 }}>
+        <button onClick={() => scrollTo("how-it-works")} className="nav-link-hide"
+          style={{ background: "none", border: "none", cursor: "pointer",
+            fontSize: "14px", color: "rgba(138,175,212,0.8)", padding: 0, whiteSpace: "nowrap" }}
           onMouseEnter={e => (e.currentTarget.style.color = "white")}
           onMouseLeave={e => (e.currentTarget.style.color = "rgba(138,175,212,0.8)")}
-        >
-          How it works
-        </button>
-        <button
-          onClick={() => scrollTo("pricing")}
-          style={{
-            background: "none", border: "none", cursor: "pointer",
-            fontSize: "14px", color: "rgba(138,175,212,0.8)",
-            padding: 0,
-          }}
+        >How it works</button>
+        <Link href="/about" className="nav-link-hide"
+          style={{ fontSize: "14px", color: "rgba(138,175,212,0.8)",
+            textDecoration: "none", whiteSpace: "nowrap" }}
+        >About</Link>
+        <button onClick={() => scrollTo("pricing")} className="nav-link-hide"
+          style={{ background: "none", border: "none", cursor: "pointer",
+            fontSize: "14px", color: "rgba(138,175,212,0.8)", padding: 0, whiteSpace: "nowrap" }}
           onMouseEnter={e => (e.currentTarget.style.color = "white")}
           onMouseLeave={e => (e.currentTarget.style.color = "rgba(138,175,212,0.8)")}
-        >
-          Pricing
-        </button>
-        <Link
-          href="/customize"
-          style={{
-            fontSize: "14px",
-            fontWeight: 600,
-            padding: "9px 20px",
-            background: "#C8A96E",
-            color: "#080E1A",
-            borderRadius: "8px",
-            textDecoration: "none",
-            letterSpacing: "0.2px",
-          }}
-        >
+        >Pricing</button>
+        <Link href="/customize" style={{
+          fontSize: "14px", fontWeight: 600,
+          padding: "9px 16px",
+          background: "#C8A96E", color: "#080E1A",
+          borderRadius: "8px", textDecoration: "none",
+          letterSpacing: "0.2px", whiteSpace: "nowrap",
+        }}>
           Create yours →
         </Link>
       </div>
+
+      <style>{`
+        .nav-logo-short { display: none; }
+        @media (max-width: 480px) {
+          .nav-logo-full  { display: none; }
+          .nav-logo-short { display: inline; }
+          .nav-link-hide  { display: none; }
+        }
+      `}</style>
     </motion.nav>
   );
 }
